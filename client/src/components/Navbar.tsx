@@ -14,7 +14,7 @@ export function Navbar() {
         <div className="nav-links">
           {site.nav.map((link) => <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>{link.label}</a>)}
         </div>
-        <a className="nav-book" href="#reservation" onClick={() => setMenuOpen(false)}>Book reservation <span aria-hidden="true">↗</span></a>
+        <a className="nav-book" href="#reservation" onClick={() => setMenuOpen(false)}>{site.cta.navBook} <span aria-hidden="true">↗</span></a>
       </nav>
     </header>
   )

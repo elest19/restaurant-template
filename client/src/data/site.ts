@@ -18,6 +18,7 @@ export interface SiteConfig {
   cta: {
     primary: string
     secondary: string
+    navBook: string
   }
   reservation: {
     kicker: string
@@ -72,6 +73,7 @@ export const site: SiteConfig = {
   cta: {
     primary: 'Book a table',
     secondary: 'View menu',
+    navBook: 'Book reservation',
   },
   reservation: {
     kicker: 'A seat is waiting for you',
