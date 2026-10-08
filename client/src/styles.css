@@ -70,7 +70,8 @@ h1 em { color: var(--green); font-style: normal; }
 .hero-photo.is-active { opacity: 1; }
 .featured-note { position: absolute; z-index: 1; left: 16px; top: auto; bottom: calc(100% + 12px); display: flex; gap: 8px; align-items: center; white-space: nowrap; transform: rotate(-4deg); color: #315a23; background: rgba(250,250,238,.95); padding: 7px 12px; border-radius: 999px; font-family: 'Playfair Display', Georgia, serif; font-size: 13px; box-shadow: 0 8px 20px #243a1821; }
 .note-line { width: 18px; height: 1px; background: var(--green); }
-.dish-caption { position: absolute; left: 12px; right: auto; bottom: 12px; max-width: calc(100% - 24px); color: #fff; font-family: 'Playfair Display', Georgia, serif; font-size: 13px; line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 7px 13px; border-radius: 999px; background: linear-gradient(180deg, rgba(9,15,6,.55), rgba(9,15,6,.85)); box-shadow: 0 6px 16px rgba(8,14,5,.4); text-shadow: 0 1px 4px rgba(0,0,0,.5); }
+.dish-caption { position: absolute; left: 12px; right: auto; bottom: 12px; max-width: calc(100% - 24px); color: #fff; font-family: 'Playfair Display', Georgia, serif; font-size: 13px; line-height: 1.3; white-space: normal; overflow-wrap: break-word; padding: 7px 13px; border-radius: 999px; background: linear-gradient(180deg, rgba(9,15,6,.55), rgba(9,15,6,.85)); box-shadow: 0 6px 16px rgba(8,14,5,.4); text-shadow: 0 1px 4px rgba(0,0,0,.5); opacity: 0; transition: opacity .4s ease; }
+.dish-caption.is-active { opacity: 1; }
 .dish-caption b { color: #d7edb4; font-size: 20px; vertical-align: -2px; margin-left: 5px; }
 .dish-loading, .dish-error { padding: 15px 20px; border-radius: 999px; background: #ffffffd9; color: var(--deep-green); font-weight: 700; }
 @keyframes fade-in { from { opacity: 0; transform: translateY(10px) scale(.985); } to { opacity: 1; transform: none; } }
@@ -149,5 +150,6 @@ h1 em { color: var(--green); font-style: normal; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .hero-photo { transition: none !important; }
+  .dish-caption { transition: none !important; }
   .brand-mark { transition: none !important; }
 }

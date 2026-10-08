@@ -71,14 +71,22 @@ export function Hero() {
                         className={index === activeIndex ? 'hero-photo is-active' : 'hero-photo'}
                         src={dish.imageUrl}
                         alt={index === activeIndex ? dish.name : ''}
-                        width="600"
-                        height="600"
+                        width="1024"
+                        height="1024"
                         loading="eager"
                         fetchPriority={index === activeIndex ? 'high' : 'auto'}
                       />
                     ))}
                   </div>
-                  <span className="dish-caption">{site.featured.caption} <b>✳</b></span>
+                  {heroDishes.map((dish, index) => (
+                    <span
+                      key={`caption-${dish.id}`}
+                      className={index === activeIndex ? 'dish-caption is-active' : 'dish-caption'}
+                      aria-hidden={index !== activeIndex}
+                    >
+                      {dish.caption || site.featured.caption} <b>✳</b>
+                    </span>
+                  ))}
                 </div>
               )}
             </div>
@@ -99,7 +107,7 @@ export function Hero() {
                     tabIndex={index === activeIndex ? 0 : -1}
                     onClick={() => setActiveIndex(index)}
                   >
-                    <img src={dish.imageUrl} alt="" width="400" height="300" loading="eager" />
+                    <img src={dish.imageUrl} alt="" width="1024" height="1024" loading="lazy" />
                     <span className="dish-tab-label">{dish.name}</span>
                   </button>
                 ))}

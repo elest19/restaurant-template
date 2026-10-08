@@ -4,6 +4,7 @@ export interface Dish {
   slug: string
   description: string
   imageUrl: string
+  caption?: string
   price?: number
   isFeatured?: boolean
 }
