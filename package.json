@@ -1,0 +1,16 @@
+{
+  "name": "harvest-table",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Restaurant landing page and reservation system",
+  "scripts": {
+    "dev": "pnpm --parallel -r dev",
+    "build": "pnpm -r build",
+    "preview": "pnpm --filter client preview",
+    "lint": "pnpm -r lint",
+    "format": "pnpm -r format"
+  },
+  "keywords": ["restaurant", "landing-page", "react", "express"],
+  "author": "",
+  "license": "MIT"
+}

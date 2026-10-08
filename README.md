@@ -1,27 +1,42 @@
 # The Green Table
 
-Frontend-only restaurant landing page built with React, TypeScript, Vite, and CSS. The design starts at `client/`; there is no backend implementation.
+Restaurant landing page with React frontend and Express backend. Built with TypeScript, Vite, and Tailwind CSS.
 
 ## Run locally
 
 ```sh
-cd client
-npm install
-npm run dev
+# Install dependencies across all packages
+pnpm install
+
+# Start dev servers (client on :5173, server on :5000)
+pnpm dev
+
+# Build both packages
+pnpm build
+
+# Build and preview client only
+pnpm --filter client build
+pnpm --filter client preview
 ```
 
 ## Structure
 
-- `client/src/components/` contains the navbar, hero, reusable buttons, and dish carousel.
-- `client/src/types/` holds the shared `Dish` type.
-- `client/src/data/` holds mock dish records.
-- `client/src/services/` provides the asynchronous mock data layer.
-- `client/src/hooks/` exposes dishes and loading/error state to UI components.
-- `client/src/lib/apiClient.ts` is the typed fetch wrapper for future API calls.
-- `client/src/assets/` is reserved for local images and other frontend assets.
+### `client/`
+- `src/components/` — React components (Navbar, Hero, DishCarousel, Button)
+- `src/types/` — TypeScript types (Dish interface)
+- `src/data/` — Site content and mock dish data
+- `src/services/` — Data fetching layer
+- `src/hooks/` — Custom React hooks
+- `src/lib/` — API client and utilities
+- `.env.example` — Environment template
 
-The current carousel calls `useDishes()`, which calls `getFeaturedDishes()` in `services/dishService.ts`. To connect the Express API later, replace that mock service implementation with `apiRequest<Dish[]>('/dishes/featured')` from `lib/apiClient.ts`. Set `VITE_API_URL` in `client/.env` using `client/.env.example`. No UI component needs to call `fetch` directly.
+### `server/`
+- `src/routes/` — API endpoints (/health, /reservations)
+- `src/middleware/` — CORS and middleware setup
+- `.env.example` — Environment template
 
-Booking links currently point to the small `#reservation` placeholder section. The dish photography is served as optimized WebP from Unsplash; replace the URLs in `src/data/dishes.ts` with locally hosted menu photography when available.
+## Development
 
-An Express + PostgreSQL server is planned but has not been started.
+The carousel uses embla-carousel-react with keyboard/swipe support. Animation libraries (GSAP, Lenis) are installed but not yet integrated. Content (hours, taglines, nav links) is centralized in `client/src/data/site.ts`.
+
+To connect the Express API, update `client/src/services/dishService.ts` to call the real endpoints instead of mock data. Set `VITE_API_URL` in `client/.env` using `client/.env.example`.
