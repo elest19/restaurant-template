@@ -22,7 +22,7 @@ export function Hero() {
 
   return (
     <main>
-      <section className="hero" id="home" aria-label="Welcome to The Green Table">
+      <section className="hero" id="home" aria-label={`Welcome to ${site.name}`}>
         <div className="hero-backdrop" aria-hidden="true" />
         <div className="hero-wash" aria-hidden="true" />
         <Navbar />
