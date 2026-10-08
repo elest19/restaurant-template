@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { useDishes } from '../hooks/useDishes'
 import { Button } from './Button'
 import { DishCarousel } from './DishCarousel'
@@ -30,7 +30,14 @@ export function Hero() {
           <div className="intro-card">
             <p className="hours"><span className="hours-dot" /> {site.hours.open} – {site.hours.close} <span aria-hidden="true">•</span> {site.hours.days}</p>
             <p className="eyebrow">{site.hero.eyebrow}</p>
-            <h1>Good food.<br />Good roots.<br /><em>Good together.</em></h1>
+            <h1>
+              {site.hero.headline.map((line, index) => (
+                <Fragment key={index}>
+                  {index > 0 && <br />}
+                  {index === site.hero.headline.length - 1 ? <em>{line}</em> : line}
+                </Fragment>
+              ))}
+            </h1>
             <p className="intro-copy">{site.hero.description}</p>
             <div className="hero-actions">
               <Button variant="outline" href="#menu">{site.cta.secondary} <span aria-hidden="true">↗</span></Button>
@@ -38,12 +45,12 @@ export function Hero() {
             </div>
           </div>
           <div className="featured-area" aria-live="polite">
-            {loading && <div className="dish-loading" role="status">Setting the table…</div>}
+            {loading && <div className="dish-loading" role="status">{site.featured.loading}</div>}
             {error && <div className="dish-error" role="alert">{error}</div>}
             {activeDish && <div key={activeDish.id} className="featured-dish">
-              <span className="featured-note"><span className="note-line" /> From our kitchen</span>
+              <span className="featured-note"><span className="note-line" /> {site.featured.note}</span>
               <img className="featured-bowl" src={activeDish.imageUrl} alt={activeDish.name} width="600" height="600" fetchPriority="high" />
-              <span className="dish-caption">A bowl full of comfort <b>✳</b></span>
+              <span className="dish-caption">{site.featured.caption} <b>✳</b></span>
             </div>}
           </div>
         </div>
