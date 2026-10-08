@@ -92,8 +92,17 @@ export function Hero() {
             </div>
           </div>
           <div className="dish-strip">
+            <div className="dish-head">
+              <h2 className="dish-head-label" id="dish-favorites-label">
+                <span className="dish-head-line" aria-hidden="true" />
+                {site.hero.favorites.label}
+              </h2>
+              <a className="dish-head-link" href="#menu">
+                {site.hero.favorites.linkLabel} <span aria-hidden="true">→</span>
+              </a>
+            </div>
             {!loading && !error && heroDishes.length > 0 && (
-              <div className="dish-tabs" role="tablist" aria-label={site.dishTabs.regionLabel} onKeyDown={handleTabKeyDown}>
+              <div className="dish-tabs" role="tablist" aria-labelledby="dish-favorites-label" onKeyDown={handleTabKeyDown}>
                 {heroDishes.map((dish, index) => (
                   <button
                     key={dish.id}

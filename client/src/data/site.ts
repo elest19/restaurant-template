@@ -15,6 +15,10 @@ export interface SiteConfig {
     headline: string[]
     description: string
     dishSlugs: string[]
+    favorites: {
+      label: string
+      linkLabel: string
+    }
   }
   nav: {
     label: string
@@ -72,6 +76,10 @@ export const site: SiteConfig = {
     // Not rendered in markup; kept for reuse in later layouts.
     description: 'A little taste of home, made fresh with ingredients from our local farmers.',
     dishSlugs: ['tinolang-manok', 'chicken-adobo', 'kare-kare', 'pancit-bihon'],
+    favorites: {
+      label: 'Guest Favorites',
+      linkLabel: 'View full menu',
+    },
   },
   nav: [
     { label: 'Home', href: '#home' },

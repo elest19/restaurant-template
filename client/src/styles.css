@@ -76,8 +76,13 @@ h1 em { color: var(--green); font-style: normal; }
 .dish-loading, .dish-error { padding: 15px 20px; border-radius: 999px; background: #ffffffd9; color: var(--deep-green); font-weight: 700; }
 @keyframes fade-in { from { opacity: 0; transform: translateY(10px) scale(.985); } to { opacity: 1; transform: none; } }
 
-.dish-strip { flex: none; height: 136px; margin-top: clamp(10px, 1.6vh, 18px); }
-.dish-tabs { height: 100%; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(8px, .9vw, 14px); }
+.dish-strip { flex: none; margin-top: clamp(10px, 1.6vh, 18px); }
+.dish-head { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px 14px; margin-bottom: 14px; }
+.dish-head-label { display: flex; align-items: center; gap: 8px; margin: 0; color: var(--deep-green); text-transform: uppercase; font-size: 10px; letter-spacing: .12em; font-weight: 700; white-space: nowrap; }
+.dish-head-line { width: 24px; height: 1px; background: var(--green); }
+.dish-head-link { display: inline-flex; align-items: center; gap: 6px; margin-left: auto; color: #060b04; text-decoration: none; font-size: 11px; font-weight: 700; letter-spacing: .04em; white-space: nowrap; transition: opacity .2s; }
+.dish-head-link:hover { opacity: .72; }
+.dish-tabs { height: 136px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(8px, .9vw, 14px); }
 .dish-tab { position: relative; overflow: hidden; padding: 0; cursor: pointer; border: 3px solid rgba(255,255,255,.4); border-radius: 12px; background: #cfd8bd; box-shadow: 0 10px 22px rgba(20,40,10,.22); opacity: .7; filter: saturate(.85); transition: opacity .25s, filter .25s, border-color .25s, box-shadow .25s; }
 .dish-tab img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .dish-tab[aria-selected='true'] { opacity: 1; filter: none; border-color: #fff; box-shadow: 0 0 0 3px var(--deep-green), 0 12px 26px rgba(20,40,10,.3); }
@@ -96,7 +101,7 @@ h1 em { color: var(--green); font-style: normal; }
   .intro-card { padding: 22px 19px 22px 25px; }
   .hours { margin-bottom: 14px; }
   h1 { font-size: clamp(39.6px, 4.23vw, 52.2px); }
-  .dish-strip { height: clamp(112px, 16vh, 136px); }
+  .dish-tabs { height: clamp(112px, 16vh, 136px); }
 }
 @media (max-width: 900px) {
   .site-header { padding: 15px 5%; height: 88px; }
@@ -135,6 +140,10 @@ h1 em { color: var(--green); font-style: normal; }
   .featured-note { left: 4px; font-size: 11px; }
   .dish-caption { left: 8px; bottom: 8px; font-size: 12px; padding: 6px 10px; }
   .dish-strip { height: auto; margin-top: 14px; }
+  .dish-head { margin-bottom: 12px; }
+  .dish-head-label { font-size: 8px; letter-spacing: .08em; gap: 6px; color: #1f321b; }
+  .dish-head-line { width: 16px; }
+  .dish-head-link { font-size: 10px; }
   .dish-tabs { height: auto; grid-template-columns: 1fr 1fr; gap: clamp(8px, 2.6vw, 12px); }
   .dish-tab { height: clamp(104px, 30vw, 130px); }
   .reservation-anchor { min-height: 190px; }
@@ -146,6 +155,7 @@ h1 em { color: var(--green); font-style: normal; }
   .intro-card { padding: 16px; }
   h1 { font-size: 37.8px; }
   .hours { font-size: 7px; }
+  .dish-head-label { font-size: 7px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
