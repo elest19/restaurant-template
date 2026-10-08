@@ -3,8 +3,8 @@
     <path d="M42 8 C 39 22 36 34 35 48" fill="none" stroke="#3d8f1a" stroke-width="4" stroke-linecap="round" />
     <path fill="#3d8f1a" d="M35 26 C 25 17 12 16 4 23 C 12 34 26 34 35 29 Z" />
     <path fill="#3d8f1a" d="M39 40 C 49 31 62 30 70 37 C 62 48 48 48 39 43 Z" />
-    <text x="4" y="122" text-anchor="start" font-size="56" font-weight="700" letter-spacing="10" fill="#21351c">THE GREEN</text>
-    <text x="4" y="188" text-anchor="start" font-size="82" font-style="italic" fill="#3d8f1a">Table</text>
+    <text x="4" y="100" text-anchor="start" font-size="56" font-weight="700" letter-spacing="10" fill="#21351c">THE GREEN</text>
+    <text x="4" y="190" text-anchor="start" font-size="82" font-style="italic" fill="#3d8f1a">Table</text>
   </g>
 </svg>
 
