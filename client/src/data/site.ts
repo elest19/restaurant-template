@@ -10,6 +10,7 @@ export interface SiteConfig {
     eyebrow: string
     headline: string[]
     description: string
+    dishSlugs: string[]
   }
   nav: {
     label: string
@@ -24,6 +25,7 @@ export interface SiteConfig {
     kicker: string
     heading: string
     description: string
+    sectionLabel: string
   }
   contact: {
     phone: string
@@ -43,11 +45,8 @@ export interface SiteConfig {
     caption: string
     loading: string
   }
-  carousel: {
+  dishTabs: {
     regionLabel: string
-    trackLabel: string
-    previousLabel: string
-    nextLabel: string
   }
 }
 
@@ -63,6 +62,7 @@ export const site: SiteConfig = {
     eyebrow: 'GROWN WITH CARE · COOKED WITH LOVE',
     headline: ['Good food.', 'Good roots.', 'Good together.'],
     description: 'A little taste of home, made fresh with ingredients from our local farmers.',
+    dishSlugs: ['tinolang-manok', 'chicken-adobo', 'kare-kare', 'pancit-bihon'],
   },
   nav: [
     { label: 'Home', href: '#home' },
@@ -79,6 +79,7 @@ export const site: SiteConfig = {
     kicker: 'A seat is waiting for you',
     heading: 'Come hungry. Leave happy.',
     description: 'Reservations are coming soon. We can\'t wait to welcome you.',
+    sectionLabel: 'Reservations',
   },
   contact: {
     phone: '+63 917 555 0142',
@@ -98,10 +99,7 @@ export const site: SiteConfig = {
     caption: 'A bowl full of comfort',
     loading: 'Setting the table…',
   },
-  carousel: {
+  dishTabs: {
     regionLabel: 'Featured dishes',
-    trackLabel: 'Choose a featured dish',
-    previousLabel: 'Previous dish',
-    nextLabel: 'Next dish',
   },
 }
