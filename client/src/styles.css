@@ -55,8 +55,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid #f4a64e; outline-offs
 .eyebrow { color: var(--green); margin: 0 0 10px; font-size: 9px; font-weight: 800; letter-spacing: .18em; }
 h1 { color: var(--deep-green); font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: clamp(2.16rem, 3.78vw, 3.24rem); line-height: .99; letter-spacing: -.045em; margin: 0; }
 h1 em { color: var(--green); font-style: normal; }
-.intro-copy { color: #4a5941; margin: 17px 0 23px; max-width: 50ch; font-size: 13px; line-height: 1.7; }
-.hero-actions { display: flex; gap: 10px; align-items: center; }
+.hero-actions { display: flex; gap: 10px; align-items: center; margin-top: 30px; }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 15px; min-height: 42px; border-radius: 999px; padding: 0 17px; text-decoration: none; text-transform: uppercase; font-size: 10px; letter-spacing: .07em; font-weight: 800; transition: transform .2s, background .2s, box-shadow .2s; }
 .button:hover { transform: translateY(-2px); }
 .button--primary { color: white; background: var(--green); box-shadow: 0 8px 20px #3d8f1a30; }
@@ -96,7 +95,6 @@ h1 em { color: var(--green); font-style: normal; }
   .intro-card { padding: 22px 19px 22px 25px; }
   .hours { margin-bottom: 14px; }
   h1 { font-size: clamp(39.6px, 4.23vw, 52.2px); }
-  .intro-copy { margin: 12px 0 16px; }
   .dish-strip { height: clamp(112px, 16vh, 136px); }
 }
 @media (max-width: 900px) {
@@ -130,7 +128,6 @@ h1 em { color: var(--green); font-style: normal; }
   .hours { font-size: 8px; margin-bottom: 14px; gap: 6px; letter-spacing: .08em; }
   .eyebrow { font-size: 8px; margin-bottom: 7px; }
   h1 { font-size: clamp(37.8px, 9.9vw, 51.3px); line-height: .97; }
-  .intro-copy { margin: 10px 0 14px; font-size: 12px; }
   .button { min-height: 39px; padding: 0 13px; font-size: 9px; gap: 9px; }
   .featured-area { margin-top: 52px; justify-items: center; }
   .featured-dish { width: min(78vw, 340px); }

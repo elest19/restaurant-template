@@ -53,7 +53,6 @@ export function Hero() {
                   </Fragment>
                 ))}
               </h1>
-              <p className="intro-copy">{site.hero.description}</p>
               <div className="hero-actions">
                 <Button variant="outline" href="#menu">{site.cta.secondary} <span aria-hidden="true">↗</span></Button>
                 <Button href="#reservation">{site.cta.primary} <span aria-hidden="true">→</span></Button>

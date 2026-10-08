@@ -69,6 +69,7 @@ export const site: SiteConfig = {
   hero: {
     eyebrow: 'GROWN WITH CARE · COOKED WITH LOVE',
     headline: ['Good food. Good roots.', 'Good together.'],
+    // Not rendered in markup; kept for reuse in later layouts.
     description: 'A little taste of home, made fresh with ingredients from our local farmers.',
     dishSlugs: ['tinolang-manok', 'chicken-adobo', 'kare-kare', 'pancit-bihon'],
   },
