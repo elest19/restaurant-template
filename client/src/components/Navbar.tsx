@@ -1,24 +1,18 @@
 import { useState } from 'react'
-
-const links = [
-  { label: 'Home', href: '#home' },
-  { label: 'Menu', href: '#menu' },
-  { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#contact' },
-]
+import { site } from '../data/site'
 
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
     <header className="site-header">
-      <a className="brand-mark" href="#home" aria-label="The Green Table home">Logo</a>
+      <a className="brand-mark" href="#home" aria-label={`${site.name} home`}>Logo</a>
       <button className="menu-toggle" type="button" aria-label={menuOpen ? 'Close navigation' : 'Open navigation'} aria-expanded={menuOpen} onClick={() => setMenuOpen((open) => !open)}>
         <span /><span /><span />
       </button>
       <nav className={`nav-panel ${menuOpen ? 'is-open' : ''}`} aria-label="Main navigation">
         <div className="nav-links">
-          {links.map((link) => <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>{link.label}</a>)}
+          {site.nav.map((link) => <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>{link.label}</a>)}
         </div>
         <a className="nav-book" href="#reservation" onClick={() => setMenuOpen(false)}>Book reservation <span aria-hidden="true">↗</span></a>
       </nav>

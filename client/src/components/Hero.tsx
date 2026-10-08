@@ -3,6 +3,7 @@ import { useDishes } from '../hooks/useDishes'
 import { Button } from './Button'
 import { DishCarousel } from './DishCarousel'
 import { Navbar } from './Navbar'
+import { site } from '../data/site'
 
 export function Hero() {
   const { dishes, loading, error } = useDishes()
@@ -27,13 +28,13 @@ export function Hero() {
         <Navbar />
         <div className="hero-layout">
           <div className="intro-card">
-            <p className="hours"><span className="hours-dot" /> 8:00 AM – 5:00 PM <span aria-hidden="true">•</span> MONDAY – SUNDAY</p>
-            <p className="eyebrow">GROWN WITH CARE · COOKED WITH LOVE</p>
+            <p className="hours"><span className="hours-dot" /> {site.hours.open} – {site.hours.close} <span aria-hidden="true">•</span> {site.hours.days}</p>
+            <p className="eyebrow">{site.hero.eyebrow}</p>
             <h1>Good food.<br />Good roots.<br /><em>Good together.</em></h1>
-            <p className="intro-copy">A little taste of home, made fresh with ingredients from our local farmers.</p>
+            <p className="intro-copy">{site.hero.description}</p>
             <div className="hero-actions">
-              <Button variant="outline" href="#menu">View menu <span aria-hidden="true">↗</span></Button>
-              <Button href="#reservation">Book a table <span aria-hidden="true">→</span></Button>
+              <Button variant="outline" href="#menu">{site.cta.secondary} <span aria-hidden="true">↗</span></Button>
+              <Button href="#reservation">{site.cta.primary} <span aria-hidden="true">→</span></Button>
             </div>
           </div>
           <div className="featured-area" aria-live="polite">
@@ -50,7 +51,7 @@ export function Hero() {
           {!loading && !error && <DishCarousel dishes={dishes} activeIndex={activeIndex} onSelect={setActiveIndex} />}
         </div>
       </section>
-      <section className="reservation-anchor" id="reservation" aria-label="Reservations"><span className="reservation-kicker">A seat is waiting for you</span><h2>Come hungry. Leave happy.</h2><p>Reservations are coming soon. We can’t wait to welcome you.</p></section>
+      <section className="reservation-anchor" id="reservation" aria-label="Reservations"><span className="reservation-kicker">{site.reservation.kicker}</span><h2>{site.reservation.heading}</h2><p>{site.reservation.description}</p></section>
     </main>
   )
 }
