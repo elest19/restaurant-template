@@ -1,6 +1,6 @@
 # The Green Table
 
-Restaurant landing page with React frontend and Express backend. Built with TypeScript, Vite, and Tailwind CSS.
+Restaurant landing page with React frontend and Express backend. Built with TypeScript, Vite, and plain CSS.
 
 ## Run locally
 
