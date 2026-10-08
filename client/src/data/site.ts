@@ -1,6 +1,10 @@
 export interface SiteConfig {
   name: string
   tagline: string
+  logo: {
+    src: string
+    alt: string
+  }
   hours: {
     open: string
     close: string
@@ -53,6 +57,10 @@ export interface SiteConfig {
 export const site: SiteConfig = {
   name: 'The Green Table',
   tagline: 'Fresh from our kitchen',
+  logo: {
+    src: '/images/logo.svg',
+    alt: 'The Green Table logo',
+  },
   hours: {
     open: '8:00 AM',
     close: '5:00 PM',
@@ -60,7 +68,7 @@ export const site: SiteConfig = {
   },
   hero: {
     eyebrow: 'GROWN WITH CARE · COOKED WITH LOVE',
-    headline: ['Good food.', 'Good roots.', 'Good together.'],
+    headline: ['Good food. Good roots.', 'Good together.'],
     description: 'A little taste of home, made fresh with ingredients from our local farmers.',
     dishSlugs: ['tinolang-manok', 'chicken-adobo', 'kare-kare', 'pancit-bihon'],
   },

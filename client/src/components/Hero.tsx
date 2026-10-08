@@ -1,4 +1,4 @@
-import { Fragment, useRef, useState } from 'react'
+import { Fragment, useEffect, useRef, useState } from 'react'
 import type { KeyboardEvent } from 'react'
 import { useDishes } from '../hooks/useDishes'
 import { Button } from './Button'
@@ -9,6 +9,16 @@ export function Hero() {
   const { dishes, loading, error } = useDishes()
   const [activeIndex, setActiveIndex] = useState(0)
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
+  const heroRef = useRef<HTMLElement>(null)
+  const [heroInView, setHeroInView] = useState(true)
+
+  useEffect(() => {
+    const hero = heroRef.current
+    if (!hero || typeof IntersectionObserver === 'undefined') return
+    const observer = new IntersectionObserver(([entry]) => setHeroInView(entry.isIntersecting), { threshold: 0 })
+    observer.observe(hero)
+    return () => observer.disconnect()
+  }, [])
 
   const heroDishes = site.hero.dishSlugs.flatMap((slug) => dishes.filter((dish) => dish.slug === slug))
   const activeDish = heroDishes[activeIndex]
@@ -24,15 +34,17 @@ export function Hero() {
 
   return (
     <main>
-      <section className="hero" id="home" aria-label={`Welcome to ${site.name}`}>
+      <section ref={heroRef} className="hero" id="home" aria-label={`Welcome to ${site.name}`}>
         <div className="hero-backdrop" aria-hidden="true" />
         <div className="hero-wash" aria-hidden="true" />
-        <Navbar />
+        <Navbar heroInView={heroInView} />
         <div className="hero-body" id="menu">
           <div className="hero-layout">
             <div className="intro-card">
+              <a className="card-logo" href="#home">
+                <img src={site.logo.src} alt={site.logo.alt} />
+              </a>
               <p className="hours"><span className="hours-dot" /> {site.hours.open} – {site.hours.close} <span aria-hidden="true">•</span> {site.hours.days}</p>
-              <p className="eyebrow">{site.hero.eyebrow}</p>
               <h1>
                 {site.hero.headline.map((line, index) => (
                   <Fragment key={index}>

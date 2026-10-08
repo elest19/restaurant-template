@@ -1,12 +1,16 @@
 import { useState } from 'react'
 import { site } from '../data/site'
 
-export function Navbar() {
+type NavbarProps = {
+  heroInView?: boolean
+}
+
+export function Navbar({ heroInView = false }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
     <header className="site-header">
-      <a className="brand-mark" href="#home" aria-label={`${site.name} home`}>Logo</a>
+      <a className={`brand-mark${heroInView ? ' is-hidden' : ''}`} href="#home" aria-label={`${site.name} home`}>Logo</a>
       <button className="menu-toggle" type="button" aria-label={menuOpen ? 'Close navigation' : 'Open navigation'} aria-expanded={menuOpen} onClick={() => setMenuOpen((open) => !open)}>
         <span /><span /><span />
       </button>
