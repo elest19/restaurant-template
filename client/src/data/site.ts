@@ -33,6 +33,14 @@ export interface SiteConfig {
     eyebrow: string
     heading: string
     description: string
+    categories: {
+      id: string
+      title: string
+      image: string
+      alt: string
+      href: string
+      items?: string[]
+    }[]
   }
   about: {
     eyebrow: string
@@ -113,6 +121,43 @@ export const site: SiteConfig = {
     eyebrow: 'Our menu',
     heading: 'Menu',
     description: 'Seasonal plates and slow-cooked comfort, made for sharing around the table.',
+    categories: [
+      {
+        id: 'best-sellers',
+        title: 'Best Sellers',
+        image: '/images/menu/Meals.webp',
+        alt: 'Signature shared plates from The Green Table kitchen',
+        href: '#menu',
+      },
+      {
+        id: 'meals',
+        title: 'Meals',
+        image: '/images/menu/Soups.webp',
+        alt: 'Hearty bowls of soup and slow-cooked comfort food',
+        href: '#menu',
+      },
+      {
+        id: 'drinks',
+        title: 'Drinks',
+        image: '/images/menu/Drinks.webp',
+        alt: 'Fresh calamansi coolers and house-made drinks',
+        href: '#menu',
+      },
+      {
+        id: 'desserts',
+        title: 'Desserts',
+        image: '/images/menu/Desserts.webp',
+        alt: 'Coconut desserts and sweet afternoon treats',
+        href: '#menu',
+      },
+      {
+        id: 'food-bundles',
+        title: 'Food Bundles',
+        image: '/images/menu/Food-Bundles.webp',
+        alt: 'Family bundles for sharing, packed with rice, mains, and sides',
+        href: '#menu',
+      },
+    ],
   },
   about: {
     eyebrow: 'Our story',
