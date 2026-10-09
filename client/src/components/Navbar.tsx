@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { site } from '../data/site'
 
 type NavbarProps = {
@@ -7,6 +7,31 @@ type NavbarProps = {
 
 export function Navbar({ heroInView = false }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [activeLink, setActiveLink] = useState('#home')
+
+  useEffect(() => {
+    if (typeof IntersectionObserver === 'undefined') return
+
+    const sections = ['#home', '#menu', '#about', '#contact']
+      .map((selector) => document.querySelector(selector))
+      .filter((element): element is HTMLElement => element instanceof HTMLElement)
+
+    if (sections.length === 0) return
+
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)
+      if (visible.length === 0) return
+
+      setActiveLink(`#${visible[0].target.id}`)
+    }, {
+      threshold: [0, 0.2, 0.5, 0.8, 1],
+      rootMargin: '-18% 0px -40% 0px',
+    })
+
+    sections.forEach((section) => observer.observe(section))
+
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <header className="site-header">
@@ -16,7 +41,17 @@ export function Navbar({ heroInView = false }: NavbarProps) {
       </button>
       <nav className={`nav-panel ${menuOpen ? 'is-open' : ''}`} aria-label="Main navigation">
         <div className="nav-links">
-          {site.nav.map((link) => <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>{link.label}</a>)}
+          {site.nav.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className={activeLink === link.href ? 'is-active' : ''}
+              aria-current={activeLink === link.href ? 'page' : undefined}
+              onClick={() => setMenuOpen(false)}
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
         <a className="nav-book" href="#reservation" onClick={() => setMenuOpen(false)}>{site.cta.navBook} <span aria-hidden="true">↗</span></a>
       </nav>
