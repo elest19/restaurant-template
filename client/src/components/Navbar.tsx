@@ -26,13 +26,19 @@ export function Navbar() {
     if (sections.length === 0) return
 
     const observer = new IntersectionObserver((entries) => {
-      const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
+
       if (visible.length === 0) return
 
-      setActiveLink(`#${visible[0].target.id}`)
+      const nextSection = visible[0].target.id
+      const nextLink = nextSection === 'reservation' ? '#home' : `#${nextSection}`
+      const allowedLink = site.nav.some((link) => link.href === nextLink)
+      setActiveLink(allowedLink ? nextLink : '#home')
     }, {
       threshold: [0, 0.2, 0.5, 0.8, 1],
-      rootMargin: '-18% 0px -40% 0px',
+      rootMargin: '-35% 0px -55% 0px',
     })
 
     sections.forEach((section) => observer.observe(section))
@@ -42,7 +48,9 @@ export function Navbar() {
 
   return (
     <header className="site-header">
-      <a className={`brand-mark${heroInView ? ' is-hidden' : ''}`} href="#home" aria-label={`${site.name} home`}>Logo</a>
+      <a className={`brand-mark${heroInView ? ' is-hidden' : ''}`} href="#home" aria-label={`${site.name} home`}>
+        <img src={site.logo.src} alt={site.logo.alt} className="brand-mark__logo" />
+      </a>
       <button className="menu-toggle" type="button" aria-label={menuOpen ? 'Close navigation' : 'Open navigation'} aria-expanded={menuOpen} onClick={() => setMenuOpen((open) => !open)}>
         <span /><span /><span />
       </button>

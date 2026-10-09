@@ -4,15 +4,17 @@ export function MenuSection() {
   return (
     <section className="section-shell section-shell--menu" id="menu" aria-labelledby="menu-heading">
       <div className="section-shell__inner menu-shell">
-        <p className="section-shell__eyebrow menu-eyebrow">{site.menu.eyebrow}</p>
-        <h2 id="menu-heading" className="menu-heading">{site.menu.heading}</h2>
-        <p className="menu-description">{site.menu.description}</p>
+        <div className="menu-header">
+          {site.menu.eyebrow && <p className="section-shell__eyebrow menu-eyebrow">{site.menu.eyebrow}</p>}
+          <h2 id="menu-heading" className="menu-heading">{site.menu.heading}</h2>
+          <p className="menu-description">{site.menu.description}</p>
+        </div>
         <div className="menu-grid">
           {site.menu.categories.map((category) => (
             <a
               key={category.id}
               href={category.href}
-              className={category.id === 'food-bundles' ? 'menu-tile menu-tile--tall' : 'menu-tile'}
+              className={`menu-tile menu-tile--${category.id}`}
             >
               <img
                 src={category.image}

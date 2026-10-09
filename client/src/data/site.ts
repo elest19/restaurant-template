@@ -118,21 +118,21 @@ export const site: SiteConfig = {
     navBook: 'Book reservation',
   },
   menu: {
-    eyebrow: 'Our menu',
+    eyebrow: '',
     heading: 'Menu',
     description: 'Seasonal plates and slow-cooked comfort, made for sharing around the table.',
     categories: [
       {
         id: 'best-sellers',
         title: 'Best Sellers',
-        image: '/images/menu/Meals.webp',
+        image: '/images/menu/Soups.webp',
         alt: 'Signature shared plates from The Green Table kitchen',
         href: '#menu',
       },
       {
         id: 'meals',
         title: 'Meals',
-        image: '/images/menu/Soups.webp',
+        image: '/images/menu/Meals.webp',
         alt: 'Hearty bowls of soup and slow-cooked comfort food',
         href: '#menu',
       },
