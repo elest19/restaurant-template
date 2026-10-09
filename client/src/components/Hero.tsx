@@ -1,24 +1,13 @@
-import { Fragment, useEffect, useRef, useState } from 'react'
+import { Fragment, useRef, useState } from 'react'
 import type { KeyboardEvent } from 'react'
 import { useDishes } from '../hooks/useDishes'
 import { Button } from './Button'
-import { Navbar } from './Navbar'
 import { site } from '../data/site'
 
 export function Hero() {
   const { dishes, loading, error } = useDishes()
   const [activeIndex, setActiveIndex] = useState(0)
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
-  const heroRef = useRef<HTMLElement>(null)
-  const [heroInView, setHeroInView] = useState(true)
-
-  useEffect(() => {
-    const hero = heroRef.current
-    if (!hero || typeof IntersectionObserver === 'undefined') return
-    const observer = new IntersectionObserver(([entry]) => setHeroInView(entry.isIntersecting), { threshold: 0 })
-    observer.observe(hero)
-    return () => observer.disconnect()
-  }, [])
 
   const heroDishes = site.hero.dishSlugs.flatMap((slug) => dishes.filter((dish) => dish.slug === slug))
   const activeDish = heroDishes[activeIndex]
@@ -33,12 +22,10 @@ export function Hero() {
   }
 
   return (
-    <main>
-      <section ref={heroRef} className="hero" id="home" aria-label={`Welcome to ${site.name}`}>
-        <div className="hero-backdrop" aria-hidden="true" />
-        <div className="hero-wash" aria-hidden="true" />
-        <Navbar heroInView={heroInView} />
-        <div className="hero-body" id="menu">
+    <section className="hero" id="home" aria-label={`Welcome to ${site.name}`}>
+      <div className="hero-backdrop" aria-hidden="true" />
+      <div className="hero-wash" aria-hidden="true" />
+      <div className="hero-body">
           <div className="hero-layout">
             <div className="intro-card">
               <a className="card-logo" href="#home">
@@ -124,8 +111,6 @@ export function Hero() {
             )}
           </div>
         </div>
-      </section>
-      <section className="reservation-anchor" id="reservation" aria-label={site.reservation.sectionLabel}><span className="reservation-kicker">{site.reservation.kicker}</span><h2>{site.reservation.heading}</h2><p>{site.reservation.description}</p></section>
-    </main>
+    </section>
   )
 }

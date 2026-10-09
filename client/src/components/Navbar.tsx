@@ -1,13 +1,20 @@
 import { useEffect, useState } from 'react'
 import { site } from '../data/site'
 
-type NavbarProps = {
-  heroInView?: boolean
-}
-
-export function Navbar({ heroInView = false }: NavbarProps) {
+export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeLink, setActiveLink] = useState('#home')
+  const [heroInView, setHeroInView] = useState(true)
+
+  useEffect(() => {
+    if (typeof IntersectionObserver === 'undefined') return
+
+    const hero = document.querySelector('#home')
+    if (!hero) return
+    const heroObserver = new IntersectionObserver(([entry]) => setHeroInView(entry.isIntersecting), { threshold: 0 })
+    heroObserver.observe(hero)
+    return () => heroObserver.disconnect()
+  }, [])
 
   useEffect(() => {
     if (typeof IntersectionObserver === 'undefined') return

@@ -30,32 +30,20 @@ export interface SiteConfig {
     navBook: string
   }
   menu: {
-    label: string
-    heading: string
-    intro: string
-    categories: {
-      name: string
-      description: string
-    }[]
-  }
-  about: {
-    label: string
-    heading: string
-    intro: string
-    story: string
-    owners: {
-      name: string
-      role: string
-      bio: string
-    }[]
-  }
-  reservation: {
-    kicker: string
+    eyebrow: string
     heading: string
     description: string
-    sectionLabel: string
+  }
+  about: {
+    eyebrow: string
+    heading: string
+    story: string
+    ownersEyebrow: string
+    ownersText: string
   }
   contact: {
+    eyebrow: string
+    heading: string
     phone: string
     email: string
     address: {
@@ -63,14 +51,19 @@ export interface SiteConfig {
       city: string
       postcode: string
     }
+    hoursNote: string
     socials: {
       label: string
       href: string
     }[]
   }
-  footer: {
+  reservation: {
+    eyebrow: string
     heading: string
-    note: string
+    description: string
+  }
+  footer: {
+    blurb: string
   }
   featured: {
     note: string
@@ -117,64 +110,40 @@ export const site: SiteConfig = {
     navBook: 'Book reservation',
   },
   menu: {
-    label: 'Menu',
-    heading: 'Seasonal plates and slow-cooked comfort.',
-    intro: 'The menu shifts with the market, with bright vegetables, grilled meats, and the kind of dishes that gather everyone around the table.',
-    categories: [
-      {
-        name: 'Small Plates',
-        description: 'Charred greens, crisp fritters, and shareable bites made for lingering conversation.',
-      },
-      {
-        name: 'Rice & Noodle Bowls',
-        description: 'Comforting foundations layered with broth, herbs, and a little heat from the kitchen.',
-      },
-      {
-        name: 'Chef Specials',
-        description: 'House favorites built for family-style dinners, generous portions, and second helpings.',
-      },
-    ],
+    eyebrow: 'Our menu',
+    heading: 'Menu',
+    description: 'Seasonal plates and slow-cooked comfort, made for sharing around the table.',
   },
   about: {
-    label: 'Our story',
-    heading: 'A neighborhood kitchen rooted in gratitude and good ingredients.',
-    intro: 'The Green Table started as a simple lunch counter for friends, neighbors, and the farmers who taught us how to cook with care.',
-    story: 'We still work the same way: thoughtful sourcing, slow prep, and a menu that feels like home while celebrating the rhythm of the season.',
-    owners: [
-      {
-        name: 'Mila Santos',
-        role: 'Co-founder & culinary lead',
-        bio: 'Mila brings a love of market produce and family recipes shaped by years of weekend cooking at her grandmother’s table.',
-      },
-      {
-        name: 'Mateo Rivera',
-        role: 'Co-founder & host',
-        bio: 'Mateo keeps the room warm and welcoming, balancing service, music, and thoughtful details that make guests want to stay awhile.',
-      },
-    ],
+    eyebrow: 'Our story',
+    heading: 'About us',
+    story: 'The Green Table began as a small lunch counter for neighbors and the farmers who taught us to cook with care.',
+    ownersEyebrow: 'Meet the owners',
+    ownersText: 'Full story and portraits arrive in the next phase.',
   },
   reservation: {
-    kicker: 'A seat is waiting for you',
-    heading: 'Come hungry. Leave happy.',
-    description: 'Reservations are coming soon. We can\'t wait to welcome you.',
-    sectionLabel: 'Reservations',
+    eyebrow: 'Reservations',
+    heading: 'Book a table',
+    description: 'Reservations open here soon. Call us and we will save you a seat.',
   },
   contact: {
-    phone: '+63 917 555 0142', // PLACEHOLDER
-    email: 'hello@thegreentable.ph', // PLACEHOLDER
+    eyebrow: 'Find us',
+    heading: 'Visit The Green Table',
+    phone: '+63 917 555 0142', // PLACEHOLDER: fictional phone, replace per client.
+    email: 'hello@thegreentable.ph', // PLACEHOLDER: fictional email, replace per client.
     address: {
-      street: '128 Greenway Lane', // PLACEHOLDER
-      city: 'Quezon City',
-      postcode: '1101',
+      street: '128 Greenway Lane', // PLACEHOLDER: fictional street, replace per client.
+      city: 'Quezon City', // PLACEHOLDER: fictional city district, replace per client.
+      postcode: '1101', // PLACEHOLDER: fictional postcode, replace per client.
     },
+    hoursNote: 'Open daily, 8:00 AM – 5:00 PM.',
     socials: [
       { label: 'Instagram', href: 'https://instagram.com/thegreentable.ph' },
       { label: 'Facebook', href: 'https://facebook.com/thegreentable.ph' },
     ],
   },
   footer: {
-    heading: 'Drop by for lunch, dinner, or a slow afternoon coffee.',
-    note: 'We keep the lights warm, the table full, and the welcome easy.',
+    blurb: 'A neighborhood kitchen serving seasonal plates and slow afternoons.',
   },
   featured: {
     note: 'From our kitchen',
