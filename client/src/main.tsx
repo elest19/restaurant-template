@@ -6,6 +6,7 @@ import { Footer } from './components/Footer'
 import { Hero } from './components/Hero'
 import { MenuSection } from './components/MenuSection'
 import { Navbar } from './components/Navbar'
+import { LegalDialogHost } from './components/LegalDialog'
 import { ReservationSection } from './components/ReservationSection'
 import './styles.css'
 
@@ -20,5 +21,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <ReservationSection />
     </main>
     <Footer />
+    <LegalDialogHost />
   </React.StrictMode>,
 )

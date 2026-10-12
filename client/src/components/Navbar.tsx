@@ -30,10 +30,13 @@ export function Navbar() {
         .filter((entry) => entry.isIntersecting)
         .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
 
-      if (visible.length === 0) return
+      if (visible.length === 0) {
+        setActiveLink('')
+        return
+      }
 
       const nextSection = visible[0].target.id
-      const nextLink = nextSection === 'reservation' ? '#home' : `#${nextSection}`
+      const nextLink = `#${nextSection}`
       const allowedLink = site.nav.some((link) => link.href === nextLink)
       setActiveLink(allowedLink ? nextLink : '#home')
     }, {
